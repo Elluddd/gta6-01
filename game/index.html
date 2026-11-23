@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEON BAY — Open-World Crime Game</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game-wrap">
+  <canvas id="game" width="960" height="600"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="hud-top-left">
+      <div id="cash">$<span id="cash-val">500</span></div>
+      <div id="wanted"><span id="stars"></span></div>
+      <div id="health-bar"><div id="health-fill"></div></div>
+    </div>
+    <div id="hud-top-right">
+      <canvas id="minimap" width="180" height="180"></canvas>
+    </div>
+    <div id="hud-bottom-left">
+      <div id="speed-box"><span id="speed-val">0</span> <span class="unit">mph</span></div>
+      <div id="vehicle-label">ON FOOT</div>
+      <button id="save-btn" title="Save progress (cash, wanted level, missions)">SAVE</button>
+    </div>
+    <div id="objective" class="hidden"><span id="objective-text"></span><span id="objective-timer"></span></div>
+    <div id="toast" class="hidden"></div>
+    <div id="controls-help">WASD / Arrows — move &amp; drive &nbsp;·&nbsp; E — enter / exit car &nbsp;·&nbsp; SPACE — handbrake &nbsp;·&nbsp; M — missions &nbsp;·&nbsp; P — pause</div>
+  </div>
+
+  <!-- Title screen -->
+  <div id="title-screen" class="screen">
+    <h1 class="logo">NEON BAY</h1>
+    <p class="subtitle">An open-world crime game</p>
+    <p class="tagline">Steal cars. Outrun the cops. Run the city.</p>
+    <button id="start-btn" class="big-btn">▶ &nbsp;START GAME</button>
+    <button id="continue-btn" class="big-btn secondary hidden">↻ &nbsp;CONTINUE — LOAD SAVE</button>
+    <p class="hint">or press ENTER</p>
+    <div class="controls-box">
+      <div><b>WASD / Arrows</b> — move / drive</div>
+      <div><b>E</b> — steal / exit car</div>
+      <div><b>SPACE</b> — handbrake</div>
+      <div><b>M</b> — missions &nbsp;·&nbsp; <b>P</b> — pause</div>
+    </div>
+    <p class="fine">An original fan-made game. Not affiliated with any commercial game.</p>
+  </div>
+
+  <!-- Pause screen -->
+  <div id="pause-screen" class="screen hidden">
+    <h2>PAUSED</h2>
+    <p>Take a breather, the cops are waiting.</p>
+    <button id="resume-btn" class="big-btn">RESUME</button>
+    <button id="restart-btn" class="big-btn secondary">RESTART</button>
+  </div>
+
+  <!-- Missions menu -->
+  <div id="mission-menu" class="screen hidden">
+    <h2>MISSIONS</h2>
+    <div id="mission-list"></div>
+    <p class="hint">Press 1 / 2 / 3 to start a mission &nbsp;·&nbsp; M or ESC to close</p>
+  </div>
+
+  <!-- End screens -->
+  <div id="end-screen" class="screen hidden">
+    <h2 id="end-title">MISSION COMPLETE</h2>
+    <p id="end-text"></p>
+    <button id="end-continue-btn" class="big-btn">CONTINUE</button>
+    <button id="end-restart-btn" class="big-btn secondary">RESTART</button>
+  </div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
